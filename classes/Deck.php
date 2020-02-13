@@ -15,6 +15,28 @@ class Deck
 
     public function displayDeck()
     {
+        $htmlDeck = '<table>';
 
+        foreach ($this->deck as $value) {
+            $htmlDeck .= '<tr>';
+
+            foreach ($value as $subValue) {
+                $htmlDeck .= '<td>';
+                switch ($subValue) {
+                    case 0 : $subValue = '-' ;break;
+                    case 1 : $subValue = '&bigcirc;' ;break;
+                    case 2 : $subValue = '&cross;' ;break;
+                    default: ''; break;
+                }
+
+                $htmlDeck .= $subValue;
+                $htmlDeck .= '</td>';
+            }
+
+            $htmlDeck .= '</tr>';
+        }
+
+        $htmlDeck .= '</table>';
+        return $htmlDeck;
     }
 }
